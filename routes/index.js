@@ -5,15 +5,9 @@ import AuthController from '../controllers/AuthController';
 
 const router = express.Router();
 
-router.get('/status', (req, res) => {
-	const re = AppController.getStatus();
-	res.status(re.status).json(re.stat)
-});
+router.get('/status', AppController.getStatus);
 
-router.get('/stats', (req, res) => {
-        const re = AppController.getStatus();
-        res.status(re.status).json(re.stat);
-});
+router.get('/stats', AppController.getStats);
 
 router.post('/users', UsersController.postNew);
 
